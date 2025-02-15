@@ -10,4 +10,3 @@
 3. Build the project:
 <code>cmake .</code>
 <code>make</code>
-# game-menu-template
