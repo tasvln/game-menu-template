@@ -2,7 +2,8 @@
 
 <code>basic game menu template</code>
 
-- revisted functionals - it's basically just react useStates
+- Menu System Design
+- basic state management (revisted functionals - it's basically just react useStates)
 
 ### Installation
 1. Clone the repository

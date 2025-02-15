@@ -43,7 +43,7 @@ namespace menu
 
     // functions
     void eventHandler(SDL_Event &e);
-    void render(int screenW, int screenH, SDL_Renderer *renderer, TTF_Font *font);
+    void render(SDL_Renderer *renderer, TTF_Font *font);
   };
 }
 

@@ -97,7 +97,7 @@ int main(int argc, char *argv[])
 
           if (mainMenu.isActive())
           {
-            mainMenu.render(window.getWidth(), window.getHeight(), window.getRenderer(), gFont);
+            mainMenu.render(window.getRenderer(), gFont);
           }
 
           // adding other menus

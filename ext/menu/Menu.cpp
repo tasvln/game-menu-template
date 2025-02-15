@@ -49,10 +49,11 @@ namespace menu
     }
   }
 
-  void Menu::render(int screenW, int screenH, SDL_Renderer *renderer, TTF_Font *font)
+  void Menu::render(SDL_Renderer *renderer, TTF_Font *font)
   {
     if (!active)
       return;
+
     SDL_Rect rect = {100, 100, 300, 50};
     SDL_Color normalColor = {255, 255, 255};
     SDL_Color selectedColor = {0, 0, 0};

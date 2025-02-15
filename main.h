@@ -16,8 +16,8 @@ using namespace wdw;
 using namespace txt;
 using namespace menu;
 
-const int SCREEN_WIDTH = 640;
-const int SCREEN_HEIGHT = 480;
+const int SCREEN_WIDTH = 1080;
+const int SCREEN_HEIGHT = 768;
 
 TTF_Font *gFont = NULL;
 
