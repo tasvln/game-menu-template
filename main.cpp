@@ -44,6 +44,18 @@ int main(int argc, char *argv[])
     }
 
     Window window("GAME MENU TEMPLATE", SCREEN_WIDTH, SCREEN_HEIGHT);
+    Menu mainMenu("Main Menu");
+
+    mainMenu.addOption("Start Game", []()
+                       { SDL_Log("Starting game..."); });
+    mainMenu.addOption("Options", [&]()
+                       { SDL_Log("Open menu"); });
+
+    // adding other menus
+    // mainMenu.addOption("Options", [&]()
+    //                    { mainMenu.setActive(false); optionsMenu.setActive(true); });
+    mainMenu.addOption("Exit", []()
+                       { SDL_Log("Exiting..."); exit(0); });
 
     if (!window.init())
     {
@@ -68,9 +80,31 @@ int main(int argc, char *argv[])
             {
               isRunning = false;
             }
+
+            if (mainMenu.isActive())
+            {
+              mainMenu.eventHandler(evt);
+            }
+
+            // adding other menus
+            // else if (optionsMenu.isActive())
+            // {
+            //   optionsMenu.handleEvent(e);
+            // }
           }
 
           window.clearScreen(0xFF, 0xFF, 0xFF, 0xFF);
+
+          if (mainMenu.isActive())
+          {
+            mainMenu.render(window.getWidth(), window.getHeight(), window.getRenderer(), gFont);
+          }
+
+          // adding other menus
+          // else if (optionsMenu.isActive())
+          // {
+          //   optionsMenu.render();
+          // }
 
           window.presentRender();
         }

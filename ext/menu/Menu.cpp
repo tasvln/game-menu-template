@@ -2,11 +2,11 @@
 
 namespace menu
 {
-  Menu::Menu()
+  Menu::Menu(string name)
   {
+    menuName = name;
     selectedOption = 0;
     active = true;
-    options = NULL;
   }
 
   bool Menu::isActive() const
@@ -49,25 +49,27 @@ namespace menu
     }
   }
 
-  void Menu::render()
+  void Menu::render(int screenW, int screenH, SDL_Renderer *renderer, TTF_Font *font)
   {
-    // SDL_Rect rect = {100, 100, 300, 50};
-    // SDL_Color normalColor = {255, 255, 255};
-    // SDL_Color selectedColor = {0, 0, 0};
+    if (!active)
+      return;
+    SDL_Rect rect = {100, 100, 300, 50};
+    SDL_Color normalColor = {255, 255, 255};
+    SDL_Color selectedColor = {0, 0, 0};
 
-    // for (size_t i = 0; i < options.size(); ++i)
-    // {
-    //   SDL_Color bgColor = (i == selectedOption) ? SDL_Color{255, 255, 255} : SDL_Color{0, 0, 0};
-    //   SDL_Color textColor = (i == selectedOption) ? selectedColor : normalColor;
+    for (size_t i = 0; i < options.size(); ++i)
+    {
+      SDL_Color bgColor = (i == selectedOption) ? SDL_Color{0, 0, 0} : SDL_Color{255, 255, 255};
+      SDL_Color textColor = (i == selectedOption) ? normalColor : selectedColor;
 
-    //   SDL_SetRenderDrawColor(renderer, bgColor.r, bgColor.g, bgColor.b, 255);
-    //   SDL_RenderFillRect(renderer, &rect);
+      SDL_SetRenderDrawColor(renderer, bgColor.r, bgColor.g, bgColor.b, 255);
+      SDL_RenderFillRect(renderer, &rect);
 
-    //   txt::Texture textTexture;
-    //   textTexture.loadFromRenderedText(options[i].text, textColor, font, renderer);
-    //   textTexture.render(rect.x + 10, rect.y + 10, renderer);
+      Texture textTexture;
+      textTexture.loadFromRenderedText(options[i].text, renderer, font, textColor);
+      textTexture.render(rect.x + 10, rect.y + 10, renderer);
 
-    //   rect.y += 60;
-    // }
+      rect.y += 60;
+    }
   }
 }

@@ -1,3 +1,6 @@
+#ifndef TEXTURE_H
+#define TEXTURE_H
+
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_ttf.h>
@@ -31,8 +34,11 @@ namespace txt
 
     // functions
     bool loadFromFile(string path, SDL_Renderer *renderer);
+    bool loadFromRenderedText(string textureText, SDL_Renderer *renderer, TTF_Font *font, SDL_Color textColor);
     void render(int x, int y, SDL_Renderer *renderer, SDL_Rect *clip = NULL, double angle = 0.0, SDL_Point *center = NULL, SDL_RendererFlip flip = SDL_FLIP_NONE);
 
     void clear();
   };
 }
+
+#endif

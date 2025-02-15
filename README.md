@@ -2,7 +2,7 @@
 
 <code>basic game menu template</code>
 
-- [topics learnt]
+- revisted functionals - it's basically just react useStates
 
 ### Installation
 1. Clone the repository

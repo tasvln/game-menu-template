@@ -8,9 +8,10 @@
 #include <functional>
 #include <string>
 
-#include "ext/texture/Texture.h"
+#include "../texture/Texture.h"
 
 using namespace std;
+using namespace txt;
 
 namespace menu
 {
@@ -23,14 +24,15 @@ namespace menu
       function<void()> action;
     };
 
+    string menuName;
+
     int selectedOption;
     bool active;
 
     vector<MenuItem> options;
 
   public:
-    Menu();
-    ~Menu();
+    Menu(string name);
 
     // getters
     bool isActive() const;
@@ -41,7 +43,7 @@ namespace menu
 
     // functions
     void eventHandler(SDL_Event &e);
-    void render();
+    void render(int screenW, int screenH, SDL_Renderer *renderer, TTF_Font *font);
   };
 }
 
